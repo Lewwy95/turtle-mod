@@ -78,17 +78,19 @@ if not exist "%~dp0..\SuperWoWhook.dll" (
     powershell -c "Expand-Archive '%~dp0\bin\root\dll.zip' -Force '%~dp0\bin\temp'"
     xcopy /s /y /i "%~dp0\bin\temp\*" "%~dp0..\"
 
+    :: Extract addons and move them to the 'AddOns' folder in the 'Interface' directory
+    powershell -c "Expand-Archive '%~dp0\bin\addons.zip' -Force '%~dp0\bin\temp'"
+    xcopy /s /y /i "%~dp0\bin\temp\*" "%~dp0..\Data\Interface\AddOns"
+
     :: Copy remaining root files to the game directory
     xcopy /s /y /i "%~dp0\bin\root\*" "%~dp0..\"
 
     :: Copy data patches to the 'Data' folder in the game directory
     xcopy /s /y /i "%~dp0\bin\patches\*" "%~dp0..\Data"
 
-    :: Copy game addons to the 'AddOns' folder in the 'Interface' directory
-    xcopy /s /y /i "%~dp0\bin\addons\*" "%~dp0..\Data\Interface\AddOns"
-
     :: Delete left over files (if applicable)
     del /s /q "%~dp0..\dll.zip"
+    del /s /q "%~dp0..\addons.zip"
     del /s /q "%~dp0..\turtle-mod-main.zip"
     rmdir /s /q "%~dp0..\turtle-mod-main"
 )
