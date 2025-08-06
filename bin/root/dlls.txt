@@ -1,0 +1,4 @@
+twdiscord.dll
+VanillaMultiMonitorFix.dll
+VfPatcher.dll
+SuperWoWhook.dll
