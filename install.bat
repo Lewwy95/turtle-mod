@@ -104,7 +104,9 @@ cls
 :: Launch game
 :launch
 echo Turtle WoW is set up and ready to go!
+echo.
 echo Please use the Turtle WoW launcher to start the game.
+echo.
 pause
 
 exit
