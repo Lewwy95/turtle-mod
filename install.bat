@@ -77,6 +77,7 @@ if not exist "%~dp0..\SuperWoWhook.dll" (
     :: Extract dll files and move them to the game directory
     powershell -c "Expand-Archive '%~dp0\bin\root\dll.zip' -Force '%~dp0\bin\temp'"
     xcopy /s /y /i "%~dp0\bin\temp\*" "%~dp0..\"
+    del /s /q "%~dp0\bin\temp\*"
 
     :: Extract addons and move them to the 'AddOns' folder in the 'Interface' directory
     powershell -c "Expand-Archive '%~dp0\bin\addons.zip' -Force '%~dp0\bin\temp'"
