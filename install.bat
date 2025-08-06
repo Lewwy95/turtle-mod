@@ -67,11 +67,8 @@ break>version.txt
 powershell -c "(Invoke-WebRequest -URI 'https://raw.githubusercontent.com/Lewwy95/turtle-mod/main/version.txt').Content | Set-Content -Path '%~dp0\version.txt'"
 cls
 
-:: Uninstall all previous changes
-:install
-call "%~dp0\uninstall.bat"
-
 :: Make new changes
+:install
 echo Configuring...
 if not exist "%~dp0..\SuperWoWhook.dll" (
     :: Extract dll files and move them to the game directory
